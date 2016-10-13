@@ -39,8 +39,9 @@ zabbix_db_pass: zabbix
 zabbix_server_ip: 10.255.255.10
 zabbix_proxy_name: proxy
 
-#Proxy TLS Encryption Information - Must also be defined on server
+# Proxy TLS Encryption Information - Must also be defined on server
+# NOTE: Key is sample key from Zabbix Docs - MUST CHANGE!!
 zabbix_psk_ident: proxy
-zabbix_psk: 1f87b595725ac58dd977beef14b97461a7c1045b9a1c963065002c5473    194952
+zabbix_psk: 1f87b595725ac58dd977beef14b97461a7c1045b9a1c963065002c5473194952
 
 ```
