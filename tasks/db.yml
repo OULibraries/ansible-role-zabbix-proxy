@@ -1,0 +1,22 @@
+---
+
+- name: Database for Zabbix exists
+  mysql_db:
+    name: "{{ zabbix_db}}"
+    state: present
+    login_user: "{{mariadb_root_user}}"
+    login_password: "{{mariadb_root_pass}}"
+    login_host: "{{mariadb_host}}"
+  notify: Import Zabbix schema
+
+
+- name: Database user for Zabbix exists
+  mysql_user:
+    name: "{{zabbix_db_user}}"
+    host: localhost
+    state: present
+    priv: "{{ zabbix_db }}.*:ALL"
+    password: "{{zabbix_db_pass}}"
+    login_user: "{{mariadb_root_user}}"
+    login_password: "{{mariadb_root_pass}}"
+    login_host: "{{mariadb_host}}"
