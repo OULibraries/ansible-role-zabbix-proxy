@@ -10,13 +10,7 @@
     state: latest
   with_items:
     - zabbix-proxy-mysql
-    - zabbix-agent
     - zabbix-java-gateway
-
-- name: Start Zabbix Agent at Boot
-  service:
-    name: zabbix-agent
-    enabled: yes
 
 - name: Start Zabbix Proxy at Boot
   service:
