@@ -1,10 +1,8 @@
 OU Libraries Zabbix Proxy
 =========
 
-Rudimentary Zabbix Proxy role for CentOS 7.
+Rudimentary Zabbix Proxy Server role for CentOS 7.
 See the [Zabbix 4.0 documentation](https://www.zabbix.com/documentation/4.0/manual).
-=======
-
 
 Requirements
 ------------
@@ -19,7 +17,7 @@ This role requires:
 Role Variables
 --------------
 
-The following default variables are defined and need configured:
+The following variables are defined:
 
 ```
 httpd_dn_prefix: proxy
