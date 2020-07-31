@@ -1,33 +1,19 @@
 ---
 - name: Zabbix official repository configured
   yum:
-    name: http://repo.zabbix.com/zabbix/3.0/rhel/7/x86_64/zabbix-release-3.0-1.el7.noarch.rpm
+    name: https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-2.el7.noarch.rpm 
     state: present
 
-- name: Zabbix server and web interface packages installed
+- name: Zabbix proxy and java-gateway packages installed
   yum:
     name: "{{ item }}"
     state: latest
   with_items:
-    - zabbix-proxy-mysql.x86_64
-    - zabbix-agent
+    - zabbix-proxy-mysql
     - zabbix-java-gateway
-
-- name: Start Zabbix Agent at Boot
-  service:
-    name: zabbix-agent
-    enabled: yes
 
 - name: Start Zabbix Proxy at Boot
   service:
     name: zabbix-proxy
     enabled: yes
 
-- name: Get installed Zabbix version
-  shell: rpm -qi zabbix-proxy-mysql | awk 'BEGIN {FS=":"} ; /Version/{print $2}'| xargs
-  register:  zabbix_version_cmd
-
-
-- name: Set zabbix_version 
-  set_fact:
-    zabbix_version: "{{ zabbix_version_cmd.stdout }}"

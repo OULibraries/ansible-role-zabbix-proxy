@@ -9,16 +9,6 @@
     mode: 0640
   notify: Restart Zabbix proxy
 
-- name : Configure Zabbix Agent
-  template:
-    backup: yes
-    src: templates/zabbix_agentd.conf.j2
-    dest: /etc/zabbix/zabbix_agentd.conf
-    owner: root
-    group: zabbix
-    mode: 0640
-  notify: Restart Zabbix agent
-
 - name : Configure Zabbix Proxy Key
   template:
     backup: yes
